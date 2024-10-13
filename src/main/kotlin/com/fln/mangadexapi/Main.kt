@@ -1,17 +1,17 @@
 package com.fln.mangadexapi
 
-import com.fln.mangadexapi.entities.ContentRating
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.io.File
 
 fun main() {
-  CoroutineScope(Dispatchers.IO).launch { println(Mangadex.mangaTagAsync()) }
-  println("Var")
-  println(
-    Mangadex.mangaRandom {
-      contentRating(listOf(ContentRating.pornographic))
-      includeTag("97893a4c-12af-4dac-b6be-0dffb353568e")
-    }
+  val file = File("output.json")
+  file.appendText("[")
+  file.appendText(
+    Json.encodeToString(Mangadex.AtHome("9084b863-ebef-4a13-8e0c-c4dffe85d210") {}.build())
   )
+  file.appendText(",")
+  println(Mangadex.MangaTag {}.build())
+  print(Mangadex.MangaRandom {}.build())
+  file.appendText("]")
 }

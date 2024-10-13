@@ -1,9 +1,9 @@
 package com.fln.mangadexapi.entities
 
-import java.util.Date
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
+import java.util.Date
 
 @Serializable
 data class Manga(

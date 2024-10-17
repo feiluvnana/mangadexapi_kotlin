@@ -1,10 +1,7 @@
 package com.fln.mangadexapi.entities
 
-import kotlinx.serialization.Serializable
+data class EntityResponse<T>(val data: T)
 
-@Serializable data class EntityResponse<T>(val data: T)
-
-@Serializable
 data class CollectionResponse<T>(
   val data: List<T>,
   val limit: Int,
@@ -12,9 +9,8 @@ data class CollectionResponse<T>(
   val total: Int,
 )
 
-@Serializable data class ErrorResponse(val errors: List<Error>) : Throwable()
+data class ErrorResponse(val errors: List<Error>) : Throwable()
 
-@Serializable
 data class Error(
   val id: String,
   val status: Int,

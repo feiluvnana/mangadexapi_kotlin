@@ -1,17 +1,11 @@
 package com.fln.mangadexapi
 
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
+import com.google.gson.Gson
 import java.io.File
+import kotlin.uuid.ExperimentalUuidApi
 
-fun main() {
+@OptIn(ExperimentalUuidApi::class)
+suspend fun main() {
   val file = File("output.json")
-  file.appendText("[")
-  file.appendText(
-    Json.encodeToString(Mangadex.AtHome("9084b863-ebef-4a13-8e0c-c4dffe85d210") {}.build())
-  )
-  file.appendText(",")
-  println(Mangadex.MangaTag {}.build())
-  print(Mangadex.MangaRandom {}.build())
-  file.appendText("]")
+  file.writeText(Gson().toJson(Mangadex.unauth.authors().body()))
 }

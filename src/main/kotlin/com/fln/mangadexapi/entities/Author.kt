@@ -1,21 +1,17 @@
 package com.fln.mangadexapi.entities
 
-import kotlinx.serialization.*
-import kotlinx.serialization.json.JsonElement
 import java.util.Date
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
-@Serializable
-data class Author(
-  val id: String,
-  val authorAttributes: AuthorAttributes,
-  val relationships: List<Relationship>,
-)
+data class Author
+@OptIn(ExperimentalUuidApi::class)
+constructor(val id: Uuid, val attributes: AuthorAttributes, val relationships: List<Relationship>)
 
-@Serializable
 data class AuthorAttributes(
   val name: String,
   val imageUrl: String?,
-  val biography: JsonElement,
+  val biography: Map<String, String>,
   val twitter: String?,
   val pixiv: String?,
   val melonBook: String?,
@@ -31,6 +27,6 @@ data class AuthorAttributes(
   val namicomi: String?,
   val website: String?,
   val version: Int,
-  @Contextual val createdAt: Date,
-  @Contextual val updatedAt: Date,
+  val createdAt: Date,
+  val updatedAt: Date,
 )

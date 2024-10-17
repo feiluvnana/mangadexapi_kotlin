@@ -1,24 +1,18 @@
 package com.fln.mangadexapi.entities
 
-import kotlinx.serialization.Contextual
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.JsonElement
-import java.util.Date
+import java.util.*
 
-@Serializable
 data class Manga(
   val id: String,
   val attributes: MangaAttributes,
   val relationships: List<Relationship>,
 )
 
-@Serializable
 data class MangaAttributes(
   val title: Map<String, String>,
   val altTitles: List<Map<String, String>>,
-  val description: JsonElement,
+  //  val description: JsonElement,
   val isLocked: Boolean,
-  val links: JsonElement,
   val originalLanguage: String,
   val lastVolume: String?,
   val lastChapter: String?,
@@ -32,6 +26,6 @@ data class MangaAttributes(
   val tags: List<Tag>,
   val state: State,
   val version: Int,
-  @Contextual val createdAt: Date,
-  @Contextual val updatedAt: Date,
+  val createdAt: Date,
+  val updatedAt: Date,
 )

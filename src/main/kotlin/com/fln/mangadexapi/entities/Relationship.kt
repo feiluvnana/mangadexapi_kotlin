@@ -2,9 +2,6 @@
 
 package com.fln.mangadexapi.entities
 
-import kotlinx.serialization.Serializable
-
-@Serializable
 data class Relationship(
   val id: String,
   val type: RelationshipType,

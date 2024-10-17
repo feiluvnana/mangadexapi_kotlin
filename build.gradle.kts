@@ -1,6 +1,5 @@
 plugins {
   kotlin("jvm") version "2.0.21"
-  kotlin("plugin.serialization") version "2.0.21"
   `maven-publish`
 }
 
@@ -11,9 +10,9 @@ version = "1.0-SNAPSHOT"
 repositories { mavenCentral() }
 
 dependencies {
-  implementation("com.squareup.okhttp3:okhttp:4.12.0")
-  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
-  implementation("com.squareup.okhttp3:okhttp-coroutines:5.0.0-alpha.14")
+  implementation("com.squareup.retrofit2:retrofit:2.11.0")
+  implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
 }
 
 publishing {

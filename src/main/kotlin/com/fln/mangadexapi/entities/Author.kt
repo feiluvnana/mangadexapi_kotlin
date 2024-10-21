@@ -1,12 +1,12 @@
 package com.fln.mangadexapi.entities
 
-import java.util.Date
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
+import java.util.*
 
-data class Author
-@OptIn(ExperimentalUuidApi::class)
-constructor(val id: Uuid, val attributes: AuthorAttributes, val relationships: List<Relationship>)
+data class Author(
+  val id: String,
+  val attributes: AuthorAttributes,
+  val relationships: List<Relationship>,
+)
 
 data class AuthorAttributes(
   val name: String,

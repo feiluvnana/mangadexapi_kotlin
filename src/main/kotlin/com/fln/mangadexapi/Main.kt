@@ -1,11 +1,12 @@
 package com.fln.mangadexapi
 
-import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import java.io.File
-import kotlin.uuid.ExperimentalUuidApi
+import kotlinx.coroutines.runBlocking
 
-@OptIn(ExperimentalUuidApi::class)
-suspend fun main() {
+fun main() {
   val file = File("output.json")
-  file.writeText(Gson().toJson(Mangadex.unauth.authors().body()))
+  runBlocking {
+    file.writeText(GsonBuilder().setPrettyPrinting().create().toJson(Mangadex.unauth.mangaTags()))
+  }
 }

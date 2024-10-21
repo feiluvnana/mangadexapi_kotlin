@@ -10,7 +10,7 @@ data class Tag(
 
 data class TagAttributes(
   val name: Map<String, String>,
-  //  val description: JsonElement,
+  val description: Map<LanguageCode, String>,
   val group: TagGroup,
   val version: Int,
 )
